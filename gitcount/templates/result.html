@@ -12,14 +12,8 @@ max-width: 30rem; float: none; margin: 0 auto;
     <font color="black">
     <h1>깃 허브 아이디를 </h1>
     <h1>입력하세요.</h1><br>
+    {{gitcommit}}
     </font>
-<form class="form-inline" method="POST" action="{%url 'result' %}">
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <div class="form-group mx-sm-3 mb-2">
-        <label for="inputPassword2" class="sr-only">githubID</label>
-        <input type="input" class="form-control" id="gitID" name="gitID" placeholder="github ID">
-    </div>
-    <button type="submit" class="btn btn-dark mb-2">확인하기</button>
 </form>
 </div>
 </body>
