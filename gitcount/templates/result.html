@@ -1,19 +1,20 @@
 <haed>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap" rel="stylesheet">
 <style>
 #div1{
-max-width: 30rem; float: none; margin: 0 auto;
+max-width: 40rem; float: none; margin: 0 auto;
+font-family: 'Yeon Sung', cursive;
 }
+
 </style>
 </head>
 <body>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <div id="div1" align="center">
-    <font color="black">
-    <h1>깃 허브 아이디를 </h1>
-    <h1>입력하세요.</h1><br>
-    {{gitcommit}}
-    </font>
+    <h1>{{gitcommit}}</h1><br>
+    <h1>코딩에 투자한 날은 365일 중 {{day}}%입니다.</h1><br>
+    <a href="{% url 'home' %}"><button type="submit" class="btn btn-dark mb-2">돌아가기</button></a>
 </form>
 </div>
 </body>

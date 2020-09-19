@@ -21,5 +21,6 @@ def result(request):
         for tag in soup.select(countArray):
             commit+=1
     gitcommit = "1일 1커밋한 날은 총 "+str(commit)+"일입니다."
+    day = round(commit/365*100,1)
 
-    return render(request,'result.html',{'gitcommit':gitcommit})
+    return render(request,'result.html',{'gitcommit':gitcommit,'day':day,'gitID':gitID})
