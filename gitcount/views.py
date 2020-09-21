@@ -24,10 +24,14 @@ def result(request):
     gitcommit = "1일 1커밋한 날은 총 "+str(commit)+"일입니다."
     day = round(commit/365*100,1)
 
+    Fields = CountModel.objects.all()
     account = CountModel()
-    account.gitid = gitID
-    account.gitcommitcount = commit
-    account.save()
+    for acc in Fields.all():
+        if gitID != acc.gitid:
+            account.gitid = gitID
+            account.gitcommitcount = commit
+            account.save()
+            break
     
 
-    return render(request,'result.html',{'gitcommit':gitcommit,'day':day,'gitID':gitID,'account':account})
+    return render(request,'result.html',{'gitcommit':gitcommit,'day':day,'gitID':gitID,'Fields':Fields})
