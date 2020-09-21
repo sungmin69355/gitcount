@@ -2,6 +2,7 @@ from django.shortcuts import render
 import requests
 from bs4 import BeautifulSoup
 from django.views.decorators.csrf import csrf_exempt
+from .models import CountModel
 
 def home(request):
     return render(request,'home.html')
@@ -23,4 +24,10 @@ def result(request):
     gitcommit = "1일 1커밋한 날은 총 "+str(commit)+"일입니다."
     day = round(commit/365*100,1)
 
-    return render(request,'result.html',{'gitcommit':gitcommit,'day':day,'gitID':gitID})
+    account = CountModel()
+    account.gitid = gitID
+    account.gitcommitcount = commit
+    account.save()
+    
+
+    return render(request,'result.html',{'gitcommit':gitcommit,'day':day,'gitID':gitID,'account':account})
