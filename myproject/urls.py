@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',gitcount.views.home,name="home"),
     path('result',gitcount.views.result,name="result"),
+    path('rank',gitcount.views.rank,name="rank"),
 
 ]
