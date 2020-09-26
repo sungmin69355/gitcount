@@ -38,5 +38,6 @@ def result(request):
     return render(request,'result.html',{'gitcommit':gitcommit,'day':day,'gitID':gitID,'account':account})
 
 def rank(request):
-    CountModels = CountModel.objects.all()
-    return render(request,'rank.html',{'CountModels':CountModels})
+    CountModels = CountModel.objects.all().order_by('-gitcommitcount')
+    rank = 0
+    return render(request,'rank.html',{'CountModels':CountModels,'rank':rank})
