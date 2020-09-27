@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from django.views.decorators.csrf import csrf_exempt
 from .models import CountModel
+from rank import Rank
 
 def home(request):
     return render(request,'home.html')
@@ -38,6 +39,7 @@ def result(request):
     return render(request,'result.html',{'gitcommit':gitcommit,'day':day,'gitID':gitID,'account':account})
 
 def rank(request):
-    CountModels = CountModel.objects.all().order_by('-gitcommitcount')
-    rank = 0
+    #CountModels = CountModel.objects.all().order_by('gitcommitcount')#문자열 값비교 x
+    CountModels = CountModel.objects.all()
+    CountModels =CountModel.objects.annotate(rank = Rank('gitcommitcount'))
     return render(request,'rank.html',{'CountModels':CountModels,'rank':rank})

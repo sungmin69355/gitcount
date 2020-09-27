@@ -11,8 +11,9 @@ font-family: 'Yeon Sung', cursive;
 <body>
 <br><br><br><br><br><br><br><br><br><br><br><br>
 <div id="div1" align="center">
+{{rank}}등
 {% for CountModel in CountModels.all %}
-    <h3>{{rank}}등 {{CountModel.gitid}}님의 commit한 날은 총 {{CountModel.gitcommitcount}}일입니다.</h3>
+    <h3> {{CountModel.gitid}}님의 commit한 날은 총 {{CountModel.gitcommitcount}}일입니다.</h3>
 
 {% endfor %}
 <br>
