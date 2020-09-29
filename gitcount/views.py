@@ -30,7 +30,10 @@ def result(request):
     if request.method  == 'POST':
         #예외처리를 해줘야함....공백일떄, 널일떄, 등등....??
         if CountModel.objects.filter(gitid=request.POST['gitID']).exists(): #아이디 중복체크
-             return render(request,'result.html',{'gitcommit':gitcommit,'day':day,'gitID':gitID,'account':account})
+            update = CountModel.objects.filter(gitid=request.POST['gitID']) #업데이트변수안에 모델을 가져온다??? 실행이안됌...
+            update.gitcommitcount = commit
+            account.save()
+            return render(request,'result.html',{'gitcommit':gitcommit,'day':day,'gitID':gitID,'account':account})
         else:
             account.gitid = gitID
             account.gitcommitcount = commit
